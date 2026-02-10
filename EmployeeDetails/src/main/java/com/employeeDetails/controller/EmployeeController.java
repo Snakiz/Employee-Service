@@ -11,30 +11,52 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.employeeDetails.DTO.EmployeeDTO;
 import com.employeeDetails.DTO.EmployeeTrainingDTO;
-import com.employeeDetails.service.EmployeeService;
+import com.employeeDetails.service.EmployeeServiceImpl;
 
 @RestController
 @RequestMapping("/Employee")
 public class EmployeeController {
- 
-	 @Autowired
-	    private EmployeeService employeeService;
 
-	    @PostMapping("/register")
-	    public EmployeeDTO registerEmployee(@RequestBody EmployeeDTO employeeDTO) {
-	        return employeeService.registerEmployee(employeeDTO);
-	    }
-	
-	    // Controller method to fetch employee details by ID
-	    @GetMapping("/{employeeId}")
-	    public ResponseEntity<?> getEmployeeById(@PathVariable Long employeeId) {
-	        return employeeService.getEmployeeByEmployeeId(employeeId);
-	    }
-	    
-	 // Controller method to add employee trainning details by ID
-	    @PostMapping("/addTrainingDetails")
-	    public ResponseEntity<?> addEmployeeTrainingDetails(@RequestBody EmployeeTrainingDTO employeeId) {
-	        return employeeService.addEmployeeTrainingDetails( employeeId);
-	    }
-	    
+    @Autowired
+    private EmployeeServiceImpl employeeService;
+
+    @PostMapping("/register")
+    public ResponseEntity<String> registerEmployee(@RequestBody EmployeeDTO employeeDTO) {
+
+        EmployeeDTO savedEmployee = employeeService.registerEmployee(employeeDTO);
+
+        String response =
+                "Employee added successfully..!!\n\n" +
+                        "Details :\n" +
+                        "EmployeeId: " + savedEmployee.getEmployeeId() + "\n" +
+                        "EmployeeName: " + savedEmployee.getEmployeeName() + "\n" +
+                        "EmployeeMailId: " + savedEmployee.getEmployeeMailId() + "\n" +
+                        "EmployeeDesignation: " + savedEmployee.getEmployeeDesignation() + "\n" +
+                        "EmployeeSalary: " + savedEmployee.getEmployeeSalary() + "\n" +
+                        "ReportingManager: " + savedEmployee.getReportingManager() + "\n" +
+                        "EmployeeTrainingDetails: " + savedEmployee.getEmployeeTrainingDetails();
+
+        return ResponseEntity.ok(response);
+    }
+
+
+    // Controller method to fetch employee details by ID
+    @GetMapping("/{employeeId}")
+    public ResponseEntity<String> getEmployeeById(@PathVariable Long employeeId) {
+        return employeeService.getEmployeeByEmployeeId(employeeId);
+    }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<String> getAllEmployees() {
+        return employeeService.getAllEmployees();
+    }
+
+
+    // Controller method to add employee trainning details by ID
+    @PostMapping("/addTrainingDetails")
+    public ResponseEntity<?> addEmployeeTrainingDetails(@RequestBody EmployeeTrainingDTO trainingDTO) {
+        return employeeService.addEmployeeTrainingDetails(trainingDTO);
+    }
+
+
 }

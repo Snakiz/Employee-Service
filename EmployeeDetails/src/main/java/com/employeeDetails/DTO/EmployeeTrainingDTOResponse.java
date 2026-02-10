@@ -40,6 +40,14 @@ public class EmployeeTrainingDTOResponse {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+    @Override
+    public String toString() {
+        return "\nCourse Name: " + courseName +
+                "\nCourse Duration: " + courseDuration +
+                "\nTotal Time Spend: " + totalTimeSpend +
+                "\nStatus: " + status + "\n";
+    }
     
 	
 	

@@ -1,5 +1,6 @@
 package com.employeeDetails.DTO;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class EmployeeDTO {
     private String employeeName;
     private String employeeMailId;
     private String employeeDesignation;
-    private float employeeSalary;
+    private BigDecimal employeeSalary;
     private String reportingManager;
     private List<EmployeeTrainingDTOResponse> employeeTrainingDetails=new ArrayList<EmployeeTrainingDTOResponse>();
     
@@ -17,13 +18,13 @@ public class EmployeeDTO {
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(String employeeName, String employeeMailId, String employeeDesignation, float employeeSalary, String reportingManager) {
-        this.employeeName = employeeName;
-        this.employeeMailId = employeeMailId;
-        this.employeeDesignation = employeeDesignation;
-        this.employeeSalary = employeeSalary;
-        this.reportingManager = reportingManager;
-    }
+//    public EmployeeDTO(String employeeName, String employeeMailId, String employeeDesignation, BigDecimal employeeSalary, String reportingManager) {
+//        this.employeeName = employeeName;
+//        this.employeeMailId = employeeMailId;
+//        this.employeeDesignation = employeeDesignation;
+//        this.employeeSalary = employeeSalary;
+//        this.reportingManager = reportingManager;
+//    }
 
     // Getters and Setters
     public Long getEmployeeId() {
@@ -58,11 +59,11 @@ public class EmployeeDTO {
         this.employeeDesignation = employeeDesignation;
     }
 
-    public float getEmployeeSalary() {
+    public BigDecimal getEmployeeSalary() {
         return employeeSalary;
     }
 
-    public void setEmployeeSalary(float employeeSalary) {
+    public void setEmployeeSalary(BigDecimal employeeSalary) {
         this.employeeSalary = employeeSalary;
     }
 

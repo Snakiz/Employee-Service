@@ -2,61 +2,54 @@ package com.employeeDetails.DTO;
 
 public class EmployeeTrainingDTO {
 
-	private Long empID;
-	
-	private String courseName;
+    private Long employeeId;
 
-	private long courseDuration;
+    private String courseName;
+    private long courseDuration;
+    private long totalTimeSpend;
+    private String status;
 
-	private long totalTimeSpend;
+    // MUST HAVE no-args constructor
+    public EmployeeTrainingDTO() {
+    }
 
-	private String status;
-     
+    public Long getEmployeeId() {
+        return employeeId;
+    }
 
-	public Long getEmpID() {
-		return empID;
-	}
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
 
-	public void setEmpID(Long empID) {
-		this.empID = empID;
-	}
+    public String getCourseName() {
+        return courseName;
+    }
 
-	public String getCourseName() {
-		return courseName;
-	}
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
 
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
+    public long getCourseDuration() {
+        return courseDuration;
+    }
 
-	public long getCourseDuration() {
-		return courseDuration;
-	}
+    public void setCourseDuration(long courseDuration) {
+        this.courseDuration = courseDuration;
+    }
 
-	public void setCourseDuration(long courseDuration) {
-		this.courseDuration = courseDuration;
-	}
+    public long getTotalTimeSpend() {
+        return totalTimeSpend;
+    }
 
-	public long getTotalTimeSpend() {
-		return totalTimeSpend;
-	}
+    public void setTotalTimeSpend(long totalTimeSpend) {
+        this.totalTimeSpend = totalTimeSpend;
+    }
 
-	public void setTotalTimeSpend(long totalTimeSpend) {
-		this.totalTimeSpend = totalTimeSpend;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public EmployeeTrainingDTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -1,5 +1,6 @@
 package com.employeeTrainingDetails.Entity;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -13,107 +14,105 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Employee {
-   
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-		
-	@Column(name = "employeeId",unique = true)
-	private Long employeeId;
 
-	@Column(name = "employee_Name") 
-	private String employeeName;
+    @Column(name = "employeeId", unique = true)
+    private Long employeeId;
 
-	@Column(name = "employee_Mailid")
-	private String employeeMailId;
+    @Column(name = "employee_Name")
+    private String employeeName;
 
-	@Column(name = "employee_Designation")
-	private String employeeDesignation;
+    @Column(name = "employee_Mailid")
+    private String employeeMailId;
 
-	@Column(name = "employee_Salary") 
-	private float employeeSalary;
+    @Column(name = "employee_Designation")
+    private String employeeDesignation;
 
-	@Column(name = "reporting_Manager") 
-	private String reportingManager;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
-	private List<EmployeeTrainning> trainingDetails;
+    @Column(name = "employee_Salary")
+    private BigDecimal employeeSalary;
 
-	public Long getEmployeeId() {
-		return employeeId;
-	}
+    @Column(name = "reporting_Manager")
+    private String reportingManager;
 
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<EmployeeTrainning> trainingDetails;
 
-	public String getEmployeeName() {
-		return employeeName;
-	}
+    public Long getEmployeeId() {
+        return employeeId;
+    }
 
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
 
-	public String getEmployeeMailId() {
-		return employeeMailId;
-	}
+    public String getEmployeeName() {
+        return employeeName;
+    }
 
-	public void setEmployeeMailId(String employeeMailId) {
-		this.employeeMailId = employeeMailId;
-	}
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
 
-	public String getEmployeeDesignation() {
-		return employeeDesignation;
-	}
+    public String getEmployeeMailId() {
+        return employeeMailId;
+    }
 
-	public void setEmployeeDesignation(String employeeDesignation) {
-		this.employeeDesignation = employeeDesignation;
-	}
+    public void setEmployeeMailId(String employeeMailId) {
+        this.employeeMailId = employeeMailId;
+    }
 
-	public float getEmployeeSalary() {
-		return employeeSalary;
-	}
+    public String getEmployeeDesignation() {
+        return employeeDesignation;
+    }
 
-	public void setEmployeeSalary(float employeeSalary) {
-		this.employeeSalary = employeeSalary;
-	}
+    public void setEmployeeDesignation(String employeeDesignation) {
+        this.employeeDesignation = employeeDesignation;
+    }
 
-	public String getReportingManager() {
-		return reportingManager;
-	}
+    public BigDecimal getEmployeeSalary() {
+        return employeeSalary;
+    }
 
-	public void setReportingManager(String reportingManager) {
-		this.reportingManager = reportingManager;
-	}
-    
-	
-	public List<EmployeeTrainning> getTrainingDetails() {
-		return trainingDetails;
-	}
+    public void setEmployeeSalary(BigDecimal employeeSalary) {
+        this.employeeSalary = employeeSalary;
+    }
 
-	public void setTrainingDetails(List<EmployeeTrainning> trainingDetails) {
-		this.trainingDetails = trainingDetails;
-	}
+    public String getReportingManager() {
+        return reportingManager;
+    }
 
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public void setReportingManager(String reportingManager) {
+        this.reportingManager = reportingManager;
+    }
 
-	public Employee(Long employeeId, String employeeName, String employeeMailId, String employeeDesignation,
-			float employeeSalary, String reportingManager, List<EmployeeTrainning> trainingDetails) {
-		super();
-		this.employeeId = employeeId;
-		this.employeeName = employeeName;
-		this.employeeMailId = employeeMailId;
-		this.employeeDesignation = employeeDesignation;
-		this.employeeSalary = employeeSalary;
-		this.reportingManager = reportingManager;
-		this.trainingDetails = trainingDetails;
-	}
-	
-	
-	
+
+    public List<EmployeeTrainning> getTrainingDetails() {
+        return trainingDetails;
+    }
+
+    public void setTrainingDetails(List<EmployeeTrainning> trainingDetails) {
+        this.trainingDetails = trainingDetails;
+    }
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(Long employeeId, String employeeName, String employeeMailId, String employeeDesignation,
+                    BigDecimal employeeSalary, String reportingManager, List<EmployeeTrainning> trainingDetails) {
+        super();
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.employeeMailId = employeeMailId;
+        this.employeeDesignation = employeeDesignation;
+        this.employeeSalary = employeeSalary;
+        this.reportingManager = reportingManager;
+        this.trainingDetails = trainingDetails;
+    }
+
+
 }
